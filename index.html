@@ -497,6 +497,24 @@
       </main>
     </div>
 
+    <footer style="text-align:center;padding:2rem 1rem;font-size:13px;color:#8a8a82;border-top:1px solid #e0e0d8;margin-top:2rem;">
+      &copy; 2026 MOULINIER CONSEILS &mdash; SAS au capital de 5 000 &euro; &mdash; SIREN 823 080 411 R.C.S. Lyon
+      &nbsp;&middot;&nbsp;
+      <a href="./mentions-legales.html" style="color:#2d5016;">Mentions légales</a>
+    </footer>
+
+    <!-- Cookie consent banner -->
+    <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a18;color:#fff;padding:1rem 1.5rem;z-index:9999;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;justify-content:space-between;">
+      <p style="margin:0;font-size:14px;flex:1;min-width:200px;">
+        Ce site utilise des cookies publicitaires (Google Ads) pour mesurer l&rsquo;efficacité de nos campagnes.
+        <a href="./mentions-legales.html" style="color:#a3d9a5;">En savoir plus</a>
+      </p>
+      <div style="display:flex;gap:0.75rem;flex-shrink:0;">
+        <button onclick="setCookieConsent(false)" style="background:transparent;border:1px solid #8a8a82;color:#8a8a82;padding:8px 16px;border-radius:4px;cursor:pointer;font-size:13px;">Refuser</button>
+        <button onclick="setCookieConsent(true)" style="background:#2d5016;border:none;color:#fff;padding:8px 16px;border-radius:4px;cursor:pointer;font-size:13px;">Accepter</button>
+      </div>
+    </div>
+
     <script src="./app.js"></script>
   <script type="application/ld+json">
 [
@@ -609,6 +627,43 @@
     ]
   }
 ]
+  </script>
+  <script>
+    (function() {
+      var consent = localStorage.getItem('cookieConsent');
+      if (consent === null) {
+        document.getElementById('cookie-banner').style.display = 'flex';
+      } else if (consent === 'true') {
+        loadTrackers();
+      }
+    })();
+
+    function setCookieConsent(accepted) {
+      localStorage.setItem('cookieConsent', accepted);
+      document.getElementById('cookie-banner').style.display = 'none';
+      if (accepted) loadTrackers();
+    }
+
+    function loadTrackers() {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      window.gtag = gtag;
+      gtag('js', new Date());
+
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z4DKR0HVZM';
+      s.onload = function() {
+        gtag('config', 'G-Z4DKR0HVZM');
+        gtag('config', 'AW-18111852112');
+      };
+      document.head.appendChild(s);
+    }
+
+    window.__resetCookieConsent = function() {
+      localStorage.removeItem('cookieConsent');
+      document.getElementById('cookie-banner').style.display = 'flex';
+    };
   </script>
   </body>
 </html>
