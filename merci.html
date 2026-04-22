@@ -129,5 +129,25 @@
       </main>
     </div>
     <script src="./app.js"></script>
+    <script>
+      if (localStorage.getItem('cookieConsent') === 'true') {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z4DKR0HVZM';
+        s.onload = function() {
+          gtag('js', new Date());
+          gtag('config', 'G-Z4DKR0HVZM');
+          gtag('config', 'AW-18111852112');
+          gtag('event', 'conversion', {
+            'send_to': 'AW-18111852112',
+            'event_category': 'lead',
+            'event_label': 'formulaire_simulation'
+          });
+        };
+        document.head.appendChild(s);
+      }
+    </script>
   </body>
 </html>
