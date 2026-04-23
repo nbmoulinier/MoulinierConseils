@@ -24,6 +24,26 @@
     <link rel="canonical" href="https://moulinierconseils.com/">
     <link rel="preload" as="image" href="./assets/thoiry-hero.jpg" />
     <link rel="stylesheet" href="./styles.css" />
+
+    <!-- Google Consent Mode v2 — default denied until user accepts -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      var _consent = localStorage.getItem('cookieConsent');
+      gtag('consent', 'default', {
+        'ad_storage':            _consent === 'true' ? 'granted' : 'denied',
+        'analytics_storage':     _consent === 'true' ? 'granted' : 'denied',
+        'ad_user_data':          _consent === 'true' ? 'granted' : 'denied',
+        'ad_personalization':    _consent === 'true' ? 'granted' : 'denied',
+        'wait_for_update': 500
+      });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z4DKR0HVZM"></script>
+    <script>
+      gtag('js', new Date());
+      gtag('config', 'G-Z4DKR0HVZM');
+      gtag('config', 'AW-18111852112');
+    </script>
   </head>
   <body>
     <div class="page-shell">
@@ -641,23 +661,13 @@
     function setCookieConsent(accepted) {
       localStorage.setItem('cookieConsent', accepted);
       document.getElementById('cookie-banner').style.display = 'none';
-      if (accepted) loadTrackers();
-    }
-
-    function loadTrackers() {
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      window.gtag = gtag;
-      gtag('js', new Date());
-
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Z4DKR0HVZM';
-      s.onload = function() {
-        gtag('config', 'G-Z4DKR0HVZM');
-        gtag('config', 'AW-18111852112');
-      };
-      document.head.appendChild(s);
+      var state = accepted ? 'granted' : 'denied';
+      gtag('consent', 'update', {
+        'ad_storage':         state,
+        'analytics_storage':  state,
+        'ad_user_data':       state,
+        'ad_personalization': state
+      });
     }
 
     window.__resetCookieConsent = function() {
