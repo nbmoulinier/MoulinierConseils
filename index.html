@@ -124,6 +124,7 @@
                   <div class="hero-badge">
                     <span class="badge-label">Exemple disponible</span>
                     <strong>T2 à Ferney 311'500EUR</strong>
+                    <button class="carousel-cta" type="button" data-property="T2 à Ferney — 311'500 EUR">Recevoir les détails</button>
                   </div>
                 </article>
                 <article class="carousel-slide">
@@ -135,7 +136,8 @@
                   />
                   <div class="hero-badge">
                     <span class="badge-label">Exemple disponible</span>
-                    <strong>T2 à Thoiry 298'800EUR </strong>
+                    <strong>T2 à Thoiry 298'800EUR</strong>
+                    <button class="carousel-cta" type="button" data-property="T2 à Thoiry — 298'800 EUR">Recevoir les détails</button>
                   </div>
                 </article>
                 <article class="carousel-slide">
@@ -148,6 +150,7 @@
                   <div class="hero-badge">
                     <span class="badge-label">Exemple disponible</span>
                     <strong>T3 à Annemasse 340'900EUR</strong>
+                    <button class="carousel-cta" type="button" data-property="T3 à Annemasse — 340'900 EUR">Recevoir les détails</button>
                   </div>
                 </article>
                 <article class="carousel-slide">
@@ -160,6 +163,7 @@
                   <div class="hero-badge">
                     <span class="badge-label">Exemple disponible</span>
                     <strong>T2 à Annecy 341'000EUR</strong>
+                    <button class="carousel-cta" type="button" data-property="T2 à Annecy — 341'000 EUR">Recevoir les détails</button>
                   </div>
                 </article>
                 <article class="carousel-slide">
@@ -172,6 +176,20 @@
                   <div class="hero-badge">
                     <span class="badge-label">Encore disponible</span>
                     <strong>T2 Jardin à Ferney 360'000EUR</strong>
+                    <button class="carousel-cta" type="button" data-property="T2 Jardin à Ferney — 360'000 EUR">Recevoir les détails</button>
+                  </div>
+                </article>
+                <article class="carousel-slide">
+                  <img
+                    src="./assets/carousel/st-julien.jpg"
+                    width="1429"
+                    height="716"
+                    alt="Programme neuf Lumen à Saint-Julien-en-Genevois"
+                  />
+                  <div class="hero-badge">
+                    <span class="badge-label">Nouveau programme</span>
+                    <strong>T2 / T3 à Saint-Julien-en-Genevois</strong>
+                    <button class="carousel-cta" type="button" data-property="T2/T3 Saint-Julien-en-Genevois — Lumen">Recevoir les détails</button>
                   </div>
                 </article>
               </div>
@@ -185,6 +203,7 @@
                   <button class="carousel-dot" type="button" data-slide="2" aria-label="Voir Annemasse"></button>
                   <button class="carousel-dot" type="button" data-slide="3" aria-label="Voir Annecy"></button>
                   <button class="carousel-dot" type="button" data-slide="4" aria-label="Voir Ferney"></button>
+                  <button class="carousel-dot" type="button" data-slide="5" aria-label="Voir Saint-Julien"></button>
                 </div>
                 <button class="carousel-button" type="button" data-direction="next" aria-label="Voir l'exemple suivant">
                   ›
@@ -483,14 +502,6 @@
                   <option>100’000 CHF et plus</option>
                 </select>
               </label>
-              <label>
-                <span>Objectif / message</span>
-                <textarea
-                  name="objectif"
-                  rows="4"
-                  placeholder="Exemple : comprendre ma capacité d’emprunt, valider l’intérêt du LMNP, ou recevoir une étude sur ce bien."
-                ></textarea>
-              </label>
               <button class="button button-primary button-block submit-button" type="submit">
                 <span class="button-label">Recevoir mon étude personnalisée</span>
                 <span class="button-loading" aria-hidden="true">
@@ -528,7 +539,7 @@
     </footer>
 
     <!-- Cookie consent banner -->
-    <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a18;color:#fff;padding:1rem 1.5rem;z-index:9999;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;justify-content:space-between;">
+    <div id="cookie-banner" style="display:none;position:fixed;bottom:0;left:0;right:0;background:#1a1a18;color:#fff;padding:1rem 1.5rem;z-index:9999;flex-wrap:wrap;align-items:center;gap:1rem;justify-content:space-between;">
       <p style="margin:0;font-size:14px;flex:1;min-width:200px;">
         Ce site utilise des cookies publicitaires (Google Ads) pour mesurer l&rsquo;efficacité de nos campagnes.
         <a href="./mentions-legales.html" style="color:#a3d9a5;">En savoir plus</a>
@@ -536,6 +547,32 @@
       <div style="display:flex;gap:0.75rem;flex-shrink:0;">
         <button onclick="setCookieConsent(false)" style="background:transparent;border:1px solid #8a8a82;color:#8a8a82;padding:8px 16px;border-radius:4px;cursor:pointer;font-size:13px;">Refuser</button>
         <button onclick="setCookieConsent(true)" style="background:#2d5016;border:none;color:#fff;padding:8px 16px;border-radius:4px;cursor:pointer;font-size:13px;">Accepter</button>
+      </div>
+    </div>
+
+    <!-- Modale rapide carrousel -->
+    <div id="quick-modal" class="quick-modal" hidden role="dialog" aria-modal="true" aria-labelledby="quick-modal-title">
+      <div class="quick-modal-backdrop"></div>
+      <div class="quick-modal-card">
+        <button class="quick-modal-close" type="button" aria-label="Fermer">×</button>
+        <p class="eyebrow">Recevoir les détails</p>
+        <h3 id="quick-modal-title"></h3>
+        <form id="quick-form" novalidate>
+          <label>
+            <span>Prénom</span>
+            <input type="text" name="prenom" placeholder="Votre prénom" required />
+          </label>
+          <label>
+            <span>Téléphone ou email</span>
+            <input type="text" name="contact" placeholder="+41 ou vous@exemple.com" required />
+          </label>
+          <button class="button button-primary button-block submit-button" type="submit">
+            <span class="button-label">Recevoir les détails</span>
+            <span class="button-loading" aria-hidden="true"><span class="spinner"></span><span>Envoi...</span></span>
+          </button>
+          <p class="quick-form-note">Réponse sous 24h, sans engagement.</p>
+        </form>
+        <p class="quick-form-success" id="quick-form-success" hidden></p>
       </div>
     </div>
 

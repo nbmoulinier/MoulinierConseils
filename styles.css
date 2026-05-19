@@ -77,6 +77,26 @@ textarea {
   gap: 12px;
 }
 
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.lang-btn {
+  font-size: 18px;
+  line-height: 1;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.lang-btn:hover,
+.lang-btn--active {
+  opacity: 1;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -459,6 +479,98 @@ h1 {
 
 .carousel-dot.is-active {
   background: #ffffff;
+}
+
+.carousel-cta {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 9px 14px;
+  background: var(--primary-deep);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+}
+.carousel-cta:hover { opacity: 0.88; }
+
+/* Quick modal */
+.quick-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.quick-modal[hidden] { display: none; }
+
+.quick-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.48);
+}
+.quick-modal-card {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.18);
+}
+.quick-modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: #f0f0ec;
+  border-radius: 999px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: var(--text);
+  line-height: 1;
+}
+.quick-modal-card h3 {
+  font-size: 1.2rem;
+  margin: 0.2rem 0 1.25rem;
+  letter-spacing: -0.02em;
+}
+.quick-modal-card label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+.quick-modal-card input {
+  padding: 12px 14px;
+  border: 1.5px solid #e0e0d8;
+  border-radius: 10px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+.quick-form-note {
+  font-size: 0.78rem;
+  color: #8a8a82;
+  text-align: center;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+}
+.quick-form-success {
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+  color: var(--primary-deep);
+  font-weight: 600;
 }
 
 .hero-side-card,
