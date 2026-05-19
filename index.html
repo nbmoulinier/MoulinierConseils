@@ -53,6 +53,10 @@
           <span>Moulinier Conseils</span>
         </a>
         <div class="header-actions">
+          <div class="lang-switcher">
+            <a href="./index.html" class="lang-btn lang-btn--active" title="Français">🇫🇷</a>
+            <a href="./index-en.html" class="lang-btn" title="English">🇬🇧</a>
+          </div>
           <a class="header-cta header-cta--secondary" href="./article-acheter-france-salaire-suisse.html">Blog&nbsp;: Acheter en France</a>
           <a class="header-cta" href="#formulaire">Simulation gratuite</a>
           <button
@@ -653,8 +657,6 @@
       var consent = localStorage.getItem('cookieConsent');
       if (consent === null) {
         document.getElementById('cookie-banner').style.display = 'flex';
-      } else if (consent === 'true') {
-        loadTrackers();
       }
     })();
 
